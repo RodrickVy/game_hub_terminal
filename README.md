@@ -1,0 +1,1 @@
+A suite of three terminal-based Java games (WordGame, NumberGame, and MyGame), developed for the COMP2522 Term Project. The application features a persistent command-line menu, robust user input handling, and object-oriented design principles, including external data loading and score tracking.
