@@ -1,3 +1,5 @@
+import word_game.WordGame;
+
 import java.util.Scanner;
 
 /**
@@ -90,7 +92,7 @@ public class Main
      *
      * @param args Command line arguments (not used).
      */
-    public static void main(String[] args)
+    static void main(String[] args)
     {
         startApplication();
     }
@@ -110,7 +112,6 @@ public class Main
 
         while (userInputScanner.hasNextLine())
         {
-
             final String userInput;
             final boolean userIsQuitting;
             final boolean userChoseNumberGame;
@@ -133,16 +134,18 @@ public class Main
             else if (userChoseNumberGame)
             {
                 System.out.println("Starting number game...");
-                // TODO: launch number game
             }
             else if (userChoseWordGame)
             {
-                System.out.println("Starting my game...");
-                // TODO: launch word game
+                final WordGame wordGame;
+
+                wordGame = new WordGame(Main::displayMenuAndPromptUser);
+
+                wordGame.startGame();
             }
             else if (userChoseMyGame)
             {
-                System.out.println("Starting word game...");
+                System.out.println("Starting my game...");
                 // TODO: launch my game
             }
             else
@@ -165,7 +168,7 @@ public class Main
     private static boolean checkCommand(final String input,
                                         final String command)
     {
-        return input.equalsIgnoreCase(command);
+        return input.trim().equalsIgnoreCase(command);
     }
 
 
@@ -191,6 +194,15 @@ public class Main
         System.out.println(MENU_PROMPT);
     }
 
+    /**
+     * Displays menu and prompts user
+     *
+     */
+    private static void displayMenuAndPromptUser()
+    {
+        displayMenu();
+        promptUser();
+    }
 
 }
 
