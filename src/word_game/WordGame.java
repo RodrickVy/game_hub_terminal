@@ -202,6 +202,8 @@ public class WordGame
                     currentSessionScore.calculateAverageScorePerGame(),
                     scoreManager.getHighestAverageScore(),
                     scoreManager.getHighestScoreDateTime());
+                
+                onGameEnd.run();
             }
         }
 
@@ -368,7 +370,7 @@ public class WordGame
             else if (userInput.equalsIgnoreCase("No"))
             {
                 playAgain = false;
-                onGameEnd.run();
+
                 break;
 
             }
